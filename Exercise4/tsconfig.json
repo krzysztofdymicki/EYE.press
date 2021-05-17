@@ -68,5 +68,5 @@
     "skipLibCheck": true,                           /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
   },
-  "include": ["ex4/ex4.ts", "ex5/ex5.ts"]
+  "include": ["ex4/ex4.ts"]
 }
