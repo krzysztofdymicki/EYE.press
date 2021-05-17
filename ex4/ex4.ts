@@ -1,9 +1,4 @@
-import {targetAndLink,
-        entityRangeObject,
-        entityMapObject,
-        entityMap,
-        block,
-        draftObject} from './types'
+import { draftObject } from './types'
 import addLinks from './helper'
 
 // --- Draft Object's conversion from JSON to Js regular object
@@ -26,4 +21,5 @@ const draft: draftObject  = JSON.parse(`{
 // -- Function takes additional, second parameter when you can specify where link should be added (target) and what its url is (link).
 // -- You can look for multiply words and sentences, as the second parameter is an array of objects { target, link }
 
-const result = JSON.stringify(addLinks(draft, [{target: 'Władimir Putin', link: 'http'}])) // JSON.stringify to obtain original JSON object from the assignment.
+const result = JSON.stringify(addLinks(draft, [{target: 'Władimir Putin', link: 'http'}, {target: 'blabla', link: 'konf'}])) // JSON.stringify to obtain original JSON object from the assignment.
+console.log(result)

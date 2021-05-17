@@ -79,19 +79,23 @@ const createMapObject = (type: string, mutability: string, url: string): entityM
 }
 
 const createRangesAndMaps = (text: string, search: targetAndLink[], lastKey: number)  => {
-    let key = lastKey.toString()
     let entityMap = {}
+    let key = 0
     const ranges = search.map( s => {
         const regexp = new RegExp(s.target,'g')
         const matches = [...text.matchAll(regexp)]
         if(matches.length > 0) {
+            //let keyToString = key.toString()
             return matches.map(m => {
-                const range: entityRangeObject =  createRangeObject(m.index, s.target.length, key)
+                console.log('index', key.toString())
+                console.log(m)
+                const range: entityRangeObject =  createRangeObject(m.index, s.target.length, key.toString())
                 const map: entityMapObject = createMapObject('LINK', 'MUTABLE', s.link)
-                Object.defineProperty(entityMap, key, {
+                Object.defineProperty(entityMap, key.toString(), {
                     value: map,
                     enumerable: true
                 })
+                ++key
                 return range
             })
         }else null
